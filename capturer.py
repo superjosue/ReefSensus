@@ -1,10 +1,10 @@
 import streamlink
 import cv2
 import time
+url2= "https://www.youtube.com/watch?v=ifqYuTn_6MI"  #explorer North Carolina
+url1 = 'https://www.youtube.com/watch?v=PbzrnUW70gU' #deerfield
 
-url = 'https://www.youtube.com/watch?v=PbzrnUW70gU'
-
-streams = streamlink.streams(url)
+streams = streamlink.streams(url2)
 cap = cv2.VideoCapture(streams["best"].url)
 i=0
 while True:
@@ -14,5 +14,4 @@ while True:
     cv2.imwrite("frame%d.jpg" % i,frame)
     i=i+1
 
-    if cv2.waitKey(1) & 0xff == ord('q'):
-        break
+
