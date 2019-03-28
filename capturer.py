@@ -10,8 +10,9 @@ i=0
 while True:
     time.sleep(1)
     ret, frame = cap.read()
-
-    cv2.imwrite("frame%d.jpg" % i,frame)
-    i=i+1
+    if ret:
+        cv2.imwrite("Photo%d.jpg" % i,frame)
+        print("saving Photo%d.jpg" % i,frame )
+        i=i+1
 
 
