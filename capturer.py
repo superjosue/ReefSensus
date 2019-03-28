@@ -1,10 +1,11 @@
 import streamlink
 import cv2
 import time
+test ="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
 url2= "https://www.youtube.com/watch?v=ifqYuTn_6MI"  #explorer North Carolina
 url1 = 'https://www.youtube.com/watch?v=PbzrnUW70gU' #deerfield
 
-streams = streamlink.streams(url2)
+streams = streamlink.streams(test)
 cap = cv2.VideoCapture(streams["best"].url)
 i=0
 while True:
@@ -12,7 +13,7 @@ while True:
     ret, frame = cap.read()
     if ret:
         cv2.imwrite("Photo%d.jpg" % i,frame)
-        print("saving Photo%d.jpg" % i,frame )
+        print("saving Photo%d.jpg" % i )
         i=i+1
-
+    print("nothing to Save")
 
